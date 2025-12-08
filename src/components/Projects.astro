@@ -1,0 +1,78 @@
+---
+// Sección de Proyectos
+// Aquí importamos y usamos el componente ProjectCard
+
+import ProjectCard from './ProjectCard.astro';
+
+// Definimos los proyectos como data
+// Esto es como tener un array de objetos que iteras con .each en Rails
+// ACTUALIZA ESTO con tus proyectos reales
+const projects = [
+  {
+    title: "Project One",
+    description: "Descripción de tu primer proyecto. Explica qué problema resuelve y qué aprendiste construyéndolo.",
+    tags: ["Ruby on Rails", "PostgreSQL", "Stimulus"],
+    image: "", // Añade URL de screenshot cuando tengas
+    demoUrl: "", // Añade URL del demo
+    repoUrl: "", // Añade URL del repo
+    featured: true // El primer proyecto será más grande
+  },
+  {
+    title: "Project Two",
+    description: "Descripción del segundo proyecto. ¿Qué tecnologías usaste? ¿Cuál fue el mayor desafío?",
+    tags: ["JavaScript", "APIs", "CSS"],
+    image: "",
+    demoUrl: "",
+    repoUrl: "",
+    featured: false
+  },
+  {
+    title: "Project Three",
+    description: "Tercer proyecto. Muestra variedad en tus habilidades y tipos de proyectos.",
+    tags: ["HTML", "Tailwind", "Ruby"],
+    image: "",
+    demoUrl: "",
+    repoUrl: "",
+    featured: false
+  },
+  // Añade más proyectos aquí cuando los tengas
+];
+---
+
+<section id="projects" class="py-24">
+  <!--
+    py-24: Padding vertical generoso (96px)
+    Esto da "espacio para respirar" entre secciones
+  -->
+
+  <div class="mx-auto max-w-5xl px-6">
+    <!-- Header de la sección -->
+    <div class="mb-12 animate-on-scroll">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Featured Projects
+      </h2>
+      <p class="mt-4 text-zinc-400">
+        Things I've built during and after the bootcamp.
+      </p>
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div class="grid gap-6 md:grid-cols-2 animate-on-scroll delay-200">
+      <!--
+        grid: Activa CSS Grid
+        gap-6: Espacio entre items
+        md:grid-cols-2: 2 columnas en pantallas medianas+
+
+        Los proyectos "featured" ocupan 2 columnas (definido en ProjectCard)
+      -->
+      {projects.map((project) => (
+        <ProjectCard {...project} />
+      ))}
+      <!--
+        {...project} es spread syntax
+        Es como pasar todos los atributos del objeto como props individuales
+        Equivalente a: title={project.title} description={project.description} etc.
+      -->
+    </div>
+  </div>
+</section>

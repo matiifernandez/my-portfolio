@@ -1,0 +1,69 @@
+---
+// El Header es fixed (se queda arriba) y tiene un efecto de glassmorphism
+// cuando haces scroll. Esto lo haremos con vanilla JS más adelante.
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <nav class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
+    <!--
+      max-w-5xl: Ancho máximo contenido (no queremos que se expanda en pantallas gigantes)
+      mx-auto: Centra el contenido
+      px-6: Padding horizontal (espaciado a los lados)
+      py-4: Padding vertical
+    -->
+
+    <!-- Logo/Nombre -->
+    <a
+      href="#"
+      class="text-xl font-bold tracking-tight hover:text-emerald-400 transition-colors"
+    >
+      <!--
+        tracking-tight: Reduce el espaciado entre letras (más compacto, moderno)
+        hover:text-emerald-400: Color al pasar el mouse
+        transition-colors: Animación suave del cambio de color
+      -->
+      mf<span class="text-emerald-400">.</span>
+      <!--
+        El punto verde es un detalle simple pero memorable
+        Hace que el logo sea reconocible
+      -->
+    </a>
+
+    <!-- Navegación -->
+    <ul class="flex items-center gap-8">
+      <!--
+        gap-8: Espacio entre elementos (más limpio que margin)
+      -->
+      <li>
+        <a
+          href="#projects"
+          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
+        >
+          Projects
+        </a>
+      </li>
+      <li>
+        <a
+          href="#about"
+          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          href="#contact"
+          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Spacer para compensar el header fixed -->
+<div class="h-16"></div>

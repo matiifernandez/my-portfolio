@@ -1,0 +1,119 @@
+---
+// Hero: La sección más importante - primera impresión
+// Diseño minimalista pero impactante con un gradiente sutil
+---
+
+<section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+  <!--
+    min-h-[85vh]: Altura mínima del 85% de la pantalla
+    El [85vh] es una sintaxis de Tailwind para valores arbitrarios
+    Usamos 85vh en lugar de 100vh para que se vea que hay más contenido abajo
+  -->
+
+  <!-- Gradiente de fondo sutil - hace que la sección sea más interesante -->
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5"
+  >
+    <!--
+      from-emerald-500/5: Color inicial con 5% de opacidad (muy sutil)
+      via-transparent: Transparente en el medio
+      to-cyan-500/5: Color final con 5% de opacidad
+
+      El /5 significa 5% de opacidad - esto crea un efecto elegante sin ser invasivo
+    -->
+  </div>
+
+  <!-- Grid decorativo de fondo (muy sutil) -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"
+  >
+    <!--
+      Esto crea un patrón de grid usando gradientes CSS
+      Es muy sutil (0.02 opacity) pero añade profundidad visual
+    -->
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="relative z-10 mx-auto max-w-4xl px-6 text-center">
+    <!-- Badge de ubicación -->
+    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-400">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+      </span>
+      Based in Tokyo, Japan
+    </div>
+    <!--
+      El dot parpadeante indica "disponible/activo"
+      animate-ping es una animación built-in de Tailwind
+      El badge da contexto inmediato sobre tu ubicación
+    -->
+
+    <!-- Título principal -->
+    <h1 class="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+      <!--
+        Tamaños responsivos:
+        text-5xl: Móvil (default)
+        sm:text-6xl: Tablets (640px+)
+        lg:text-7xl: Desktop (1024px+)
+      -->
+      Hi, I'm
+      <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+        Matias
+      </span>
+      <!--
+        bg-clip-text + text-transparent:
+        Esto hace que el gradiente se aplique al TEXTO en lugar del fondo
+        Es el efecto de "texto con gradiente" que ves en sitios modernos
+      -->
+    </h1>
+
+    <!-- Subtítulo -->
+    <p class="mx-auto mb-8 max-w-2xl text-lg text-zinc-400 sm:text-xl">
+      Full Stack web developer. Building, learning, and breaking things.
+      <br class="hidden sm:block" />
+      Mate, code, and a bit of chaos.
+    </p>
+
+    <!-- CTAs (Call to Action) -->
+    <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a
+        href="#projects"
+        class="group inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-6 py-3 font-medium text-zinc-950 transition-all hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/25"
+      >
+        <!--
+          group: Permite que los hijos reaccionen al hover del padre
+          shadow-emerald-500/25: Sombra con el color del botón (efecto glow)
+        -->
+        View my work
+        <svg
+          class="h-4 w-4 transition-transform group-hover:translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+        <!--
+          group-hover:translate-x-1: La flecha se mueve cuando haces hover en el botón
+          Pequeña animación que da feedback visual
+        -->
+      </a>
+
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-6 py-3 font-medium text-zinc-300 transition-all hover:border-zinc-600 hover:bg-zinc-800/50"
+      >
+        Get in touch
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Indicador de scroll - FUERA del div de contenido para que sea relativo a la sección -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="h-6 w-6 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

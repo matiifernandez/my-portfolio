@@ -1,0 +1,128 @@
+---
+// Sección About - Tu historia y habilidades
+// Diseño asimétrico para que sea más interesante visualmente
+
+const skills = {
+  languages: ["Ruby", "JavaScript", "HTML", "CSS", "SQL"],
+  frameworks: ["Ruby on Rails", "Stimulus", "Tailwind CSS", "Bootstrap"],
+  tools: ["Git", "GitHub", "PostgreSQL", "VS Code", "Figma"],
+  learning: ["React", "TypeScript", "Node.js"]
+};
+---
+
+<section id="about" class="py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <!-- Grid asimétrico: texto más grande que skills -->
+    <div class="grid gap-12 lg:grid-cols-5">
+      <!--
+        lg:grid-cols-5: 5 columnas en pantallas grandes
+        Esto nos permite hacer una distribución 3:2 (más flexible que 2 columnas iguales)
+      -->
+
+      <!-- Texto principal: ocupa 3 columnas -->
+      <div class="lg:col-span-3 animate-on-scroll">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          About me
+        </h2>
+
+        <div class="mt-6 space-y-4 text-zinc-400 leading-relaxed">
+          <!--
+            space-y-4: Espacio vertical entre párrafos
+            leading-relaxed: Interlineado más amplio (mejor legibilidad)
+          -->
+          <p>
+            Originally from Argentina, after spending six years in Australia
+            I've begun a new chapter in Japan, where I'm fully committing to a
+            long-awaited transition into tech.
+          </p>
+          <p>
+            To make that happen, I joined the <span class="text-zinc-200">Le Wagon bootcamp</span>,
+            where I developed a solid foundation in web development and programming fundamentals.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring Tokyo, learning Japanese,
+            or enjoying mate while debugging.
+          </p>
+        </div>
+
+        <!-- Banderas/Idiomas - un toque personal -->
+        <div class="mt-8 flex items-center gap-4 text-sm text-zinc-500">
+          <span>ES 🇦🇷</span>
+          <span class="text-zinc-700">|</span>
+          <span>EN 🇦🇺</span>
+          <span class="text-zinc-700">|</span>
+          <span>日本語を勉強中 🇯🇵</span>
+        </div>
+      </div>
+
+      <!-- Skills: ocupa 2 columnas -->
+      <div class="lg:col-span-2 animate-on-scroll delay-200">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6">
+          <h3 class="mb-6 text-lg font-semibold text-zinc-200">Tech Stack</h3>
+
+          <div class="space-y-6">
+            <!-- Languages -->
+            <div>
+              <h4 class="mb-3 text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Languages
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                {skills.languages.map((skill) => (
+                  <span class="rounded-lg bg-zinc-800 px-3 py-1.5 text-sm text-zinc-300">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Frameworks -->
+            <div>
+              <h4 class="mb-3 text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Frameworks
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                {skills.frameworks.map((skill) => (
+                  <span class="rounded-lg bg-zinc-800 px-3 py-1.5 text-sm text-zinc-300">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Tools -->
+            <div>
+              <h4 class="mb-3 text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Tools
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                {skills.tools.map((skill) => (
+                  <span class="rounded-lg bg-zinc-800 px-3 py-1.5 text-sm text-zinc-300">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Learning -->
+            <div>
+              <h4 class="mb-3 text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Currently Learning
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                {skills.learning.map((skill) => (
+                  <span class="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-400">
+                    {skill}
+                  </span>
+                ))}
+                <!--
+                  Las skills "learning" tienen un estilo diferente (verde)
+                  Esto las distingue visualmente y muestra que sigues aprendiendo
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
