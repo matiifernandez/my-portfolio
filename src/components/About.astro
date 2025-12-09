@@ -25,33 +25,26 @@ const skills = {
           About me
         </h2>
 
-        <div class="mt-6 space-y-4 text-zinc-400 leading-relaxed">
-          <!--
-            space-y-4: Espacio vertical entre párrafos
-            leading-relaxed: Interlineado más amplio (mejor legibilidad)
-          -->
-          <p>
-            Originally from Argentina, after spending six years in Australia
-            I've begun a new chapter in Japan, where I'm fully committing to a
-            long-awaited transition into tech.
-          </p>
-          <p>
-            To make that happen, I joined the <span class="text-zinc-200">Le Wagon bootcamp</span>,
-            where I developed a solid foundation in web development and programming fundamentals.
-          </p>
-          <p>
-            When I'm not coding, you'll find me exploring Tokyo, learning Japanese,
-            or enjoying mate while debugging.
-          </p>
-        </div>
+        <!-- Code snippet style -->
+        <div class="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+          <!-- Barra superior tipo editor -->
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-800 bg-zinc-900/80">
+            <span class="h-3 w-3 rounded-full bg-zinc-700"></span>
+            <span class="h-3 w-3 rounded-full bg-zinc-700"></span>
+            <span class="h-3 w-3 rounded-full bg-zinc-700"></span>
+            <span class="ml-2 text-xs text-zinc-500">about.js</span>
+          </div>
 
-        <!-- Banderas/Idiomas - un toque personal -->
-        <div class="mt-8 flex items-center gap-4 text-sm text-zinc-500">
-          <span>ES 🇦🇷</span>
-          <span class="text-zinc-700">|</span>
-          <span>EN 🇦🇺</span>
-          <span class="text-zinc-700">|</span>
-          <span>日本語を勉強中 🇯🇵</span>
+          <!-- Código -->
+          <div class="p-4 font-mono text-sm leading-relaxed overflow-x-auto">
+            <p><span class="text-zinc-500">const</span> <span class="text-emerald-400">matias</span> <span class="text-zinc-500">=</span> <span class="text-zinc-400">{</span></p>
+            <p class="pl-4"><span class="text-cyan-400">location</span><span class="text-zinc-500">:</span> <span class="text-amber-300">"Tokyo, Japan"</span><span class="text-zinc-500">,</span></p>
+            <p class="pl-4"><span class="text-cyan-400">path</span><span class="text-zinc-500">:</span> <span class="text-amber-300">"Argentina → Australia → Japan"</span><span class="text-zinc-500">,</span></p>
+            <p class="pl-4"><span class="text-cyan-400">currently</span><span class="text-zinc-500">:</span> <span class="text-amber-300">"Le Wagon bootcamp graduate"</span><span class="text-zinc-500">,</span></p>
+            <p class="pl-4"><span class="text-cyan-400">languages</span><span class="text-zinc-500">:</span> <span class="text-zinc-400">[</span><span class="text-amber-300">"ES"</span><span class="text-zinc-500">,</span> <span class="text-amber-300">"EN"</span><span class="text-zinc-500">,</span> <span class="text-amber-300">"日本語勉強中"</span><span class="text-zinc-400">]</span><span class="text-zinc-500">,</span></p>
+            <p class="pl-4"><span class="text-cyan-400">hobbies</span><span class="text-zinc-500">:</span> <span class="text-zinc-400">[</span><span class="text-amber-300">"mate 🧉"</span><span class="text-zinc-500">,</span> <span class="text-amber-300">"debugging 💻"</span><span class="text-zinc-500">,</span> <span class="text-amber-300">"exploring Tokyo 🏯"</span><span class="text-zinc-400">]</span></p>
+            <p><span class="text-zinc-400">}</span><span class="text-zinc-500">;</span></p>
+          </div>
         </div>
       </div>
 

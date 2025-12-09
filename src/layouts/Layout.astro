@@ -14,7 +14,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
 
-  <body class="bg-zinc-950 text-zinc-100 antialiased">
+  <body class="bg-zinc-950 text-zinc-200 antialiased overflow-x-hidden">
     <!--
       antialiased: Suaviza las fuentes (se ve más profesional)
       bg-zinc-950: Fondo casi negro pero con un toque cálido
@@ -91,6 +91,21 @@ const { title } = Astro.props;
       // Observamos todos los elementos con la clase .animate-on-scroll
       document.querySelectorAll('.animate-on-scroll').forEach((el) => {
         observer.observe(el);
+      });
+
+      // ================================
+      // SMOOTH SCROLL (solo para clicks en anchor links)
+      // ================================
+      // Esto evita el "salto" al hacer refresh que causa scroll-smooth en el html
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = anchor.getAttribute('href');
+          const target = document.querySelector(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
       });
     </script>
   </body>

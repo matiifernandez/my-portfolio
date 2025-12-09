@@ -72,7 +72,7 @@
     <p class="mx-auto mb-8 max-w-2xl text-lg text-zinc-400 sm:text-xl">
       Full Stack web developer. Building, learning, and breaking things.
       <br class="hidden sm:block" />
-      Mate, code, and a bit of chaos.
+      Mate 🧉, code, and a bit of chaos.
     </p>
 
     <!-- CTAs (Call to Action) -->
@@ -106,14 +106,25 @@
       >
         Get in touch
       </a>
+
+      <a
+        href="#about"
+        class="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-6 py-3 font-medium text-zinc-300 transition-all hover:border-zinc-600 hover:bg-zinc-800/50"
+      >
+        About me
+      </a>
     </div>
 
   </div>
 
-  <!-- Indicador de scroll - FUERA del div de contenido para que sea relativo a la sección -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="h-6 w-6 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <!-- Indicador de scroll clickeable - lleva al siguiente viewport -->
+  <a
+    href="#projects"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer transition-colors hover:text-emerald-400"
+    aria-label="Scroll to projects"
+  >
+    <svg class="h-6 w-6 text-zinc-600 hover:text-emerald-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
     </svg>
-  </div>
+  </a>
 </section>
