@@ -107,6 +107,44 @@ const { title } = Astro.props;
           }
         });
       });
+
+      // ================================
+      // TYPEWRITER EFFECT
+      // ================================
+      const typewriterEl = document.getElementById('typewriter');
+      if (typewriterEl) {
+        const words = ['Building', 'Learning', 'Breaking'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+          const currentWord = words[wordIndex];
+
+          if (isDeleting) {
+            typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+          }
+
+          let delay = isDeleting ? 50 : 100;
+
+          if (!isDeleting && charIndex === currentWord.length) {
+            delay = 2000; // Pausa al final de la palabra
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            delay = 500; // Pausa antes de la siguiente palabra
+          }
+
+          setTimeout(type, delay);
+        }
+
+        type();
+      }
     </script>
   </body>
 </html>

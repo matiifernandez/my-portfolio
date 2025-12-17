@@ -3,11 +3,11 @@
 // Diseño minimalista pero impactante con un gradiente sutil
 ---
 
-<section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+<section class="relative min-h-[85dvh] flex items-center justify-center overflow-hidden">
   <!--
-    min-h-[85vh]: Altura mínima del 85% de la pantalla
-    El [85vh] es una sintaxis de Tailwind para valores arbitrarios
-    Usamos 85vh en lugar de 100vh para que se vea que hay más contenido abajo
+    min-h-[85dvh]: Altura mínima del 85% del viewport dinámico
+    dvh se adapta mejor a móviles donde la barra del browser puede aparecer/desaparecer
+    Usamos 85% en lugar de 100% para que se vea que hay más contenido abajo
   -->
 
   <!-- Gradiente de fondo sutil - hace que la sección sea más interesante -->
@@ -23,13 +23,13 @@
     -->
   </div>
 
-  <!-- Grid decorativo de fondo -->
+  <!-- Grid decorativo de fondo con mask para difuminarlo hacia abajo -->
   <div
-    class="absolute inset-0 bg-[linear-gradient(rgba(52,211,153,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(52,211,153,0.07)_1px,transparent_1px)] bg-[size:64px_64px]"
+    class="absolute inset-0 bg-[linear-gradient(rgba(52,211,153,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(52,211,153,0.07)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:linear-gradient(to_bottom,white_50%,transparent_100%)]"
   >
     <!--
       Esto crea un patrón de grid usando gradientes CSS
-      Es muy sutil (0.02 opacity) pero añade profundidad visual
+      El mask-image difumina el grid hacia abajo para un efecto más elegante
     -->
   </div>
 
@@ -68,9 +68,9 @@
       -->
     </h1>
 
-    <!-- Subtítulo -->
+    <!-- Subtítulo con efecto typewriter -->
     <p class="mx-auto mb-8 max-w-2xl text-lg text-zinc-400 sm:text-xl">
-      Full Stack web developer. Building, learning, and breaking things.
+      Full Stack web developer. <span id="typewriter" class="text-emerald-400"></span><span class="animate-pulse">|</span> things.
       <br class="hidden sm:block" />
       Mate 🧉, code, and a bit of chaos.
     </p>
@@ -100,19 +100,17 @@
         -->
       </a>
 
-      <a
-        href="#contact"
-        class="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-6 py-3 font-medium text-zinc-300 transition-all hover:border-zinc-600 hover:bg-zinc-800/50"
-      >
-        Get in touch
-      </a>
-
-      <a
-        href="#about"
-        class="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-6 py-3 font-medium text-zinc-300 transition-all hover:border-zinc-600 hover:bg-zinc-800/50"
-      >
-        About me
-      </a>
+      {[
+        { href: "#contact", label: "Get in touch" },
+        { href: "#about", label: "About me" }
+      ].map(({ href, label }) => (
+        <a
+          href={href}
+          class="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-6 py-3 font-medium text-zinc-300 transition-all hover:border-zinc-600 hover:bg-zinc-800/50"
+        >
+          {label}
+        </a>
+      ))}
     </div>
 
   </div>
