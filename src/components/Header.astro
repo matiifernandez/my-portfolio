@@ -32,11 +32,8 @@
       -->
     </a>
 
-    <!-- Navegación -->
-    <ul class="flex items-center gap-8">
-      <!--
-        gap-8: Espacio entre elementos (más limpio que margin)
-      -->
+    <!-- Desktop Navigation -->
+    <ul class="hidden md:flex items-center gap-8">
       <li>
         <a
           href="#projects"
@@ -62,8 +59,97 @@
         </a>
       </li>
     </ul>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-toggle"
+      class="block md:hidden text-zinc-400 hover:text-zinc-100 transition-colors p-2"
+      aria-label="Toggle Menu"
+    >
+      <svg
+        id="menu-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+      <svg
+        id="close-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 hidden"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
   </nav>
+
+  <!-- Mobile Navigation Menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 top-[72px] bg-zinc-950/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 md:hidden transition-all duration-300 border-t border-zinc-800/50"
+  >
+    <a
+      href="#projects"
+      class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
+    >
+      Projects
+    </a>
+    <a
+      href="#about"
+      class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
+    >
+      About
+    </a>
+    <a
+      href="#contact"
+      class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
+    >
+      Contact
+    </a>
+  </div>
 </header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    mobileMenu?.classList.toggle('hidden');
+    mobileMenu?.classList.toggle('flex');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    document.body.classList.toggle('overflow-hidden');
+  }
+
+  menuToggle?.addEventListener('click', toggleMenu);
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!mobileMenu?.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
+</script>
 
 <!-- Spacer para compensar el header fixed -->
 <div class="h-16"></div>
