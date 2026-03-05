@@ -153,8 +153,8 @@ const navItems = [
 
   // Resetear el estado del menú al entrar en breakpoint de escritorio
   const mdMediaQuery = window.matchMedia('(min-width: 768px)');
-  function handleBreakpointChange(event: MediaQueryListEvent | { matches: boolean }) {
-    if (event.matches) {
+  function handleBreakpointChange(event) {
+    if (event && event.matches) {
       closeMenu();
     }
   }
