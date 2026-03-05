@@ -1,6 +1,12 @@
 ---
 // El Header es fixed (se queda arriba) y tiene un efecto de glassmorphism
 // cuando haces scroll. Esto lo haremos con vanilla JS más adelante.
+
+const navItems = [
+  { href: "#projects", label: "Projects" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
 ---
 
 <header
@@ -17,7 +23,7 @@
 
     <!-- Logo/Nombre -->
     <a
-      href="#"
+      href="/"
       class="text-xl font-bold tracking-tight hover:text-emerald-400 transition-colors"
     >
       <!--
@@ -32,39 +38,28 @@
       -->
     </a>
 
-    <!-- Desktop Navigation -->
+    <!-- Navegación Escritorio -->
     <ul class="hidden md:flex items-center gap-8">
-      <li>
-        <a
-          href="#projects"
-          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          Projects
-        </a>
-      </li>
-      <li>
-        <a
-          href="#about"
-          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          About
-        </a>
-      </li>
-      <li>
-        <a
-          href="#contact"
-          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          Contact
-        </a>
-      </li>
+      {navItems.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
     </ul>
 
-    <!-- Mobile Menu Button -->
+    <!-- Botón Menú Móvil -->
     <button
       id="menu-toggle"
+      type="button"
       class="block md:hidden text-zinc-400 hover:text-zinc-100 transition-colors p-2"
-      aria-label="Toggle Menu"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
       <svg
         id="menu-icon"
@@ -99,30 +94,21 @@
     </button>
   </nav>
 
-  <!-- Mobile Navigation Menu -->
-  <div
+  <!-- Menú de Navegación Móvil -->
+  <nav
     id="mobile-menu"
-    class="fixed inset-0 top-[72px] bg-zinc-950/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 md:hidden transition-all duration-300 border-t border-zinc-800/50"
+    class="fixed inset-x-0 top-16 bottom-0 bg-zinc-950/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 md:hidden transition-all duration-300 border-t border-zinc-800/50"
+    aria-label="Mobile navigation"
   >
-    <a
-      href="#projects"
-      class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
-    >
-      Projects
-    </a>
-    <a
-      href="#about"
-      class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
-    >
-      About
-    </a>
-    <a
-      href="#contact"
-      class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
-    >
-      Contact
-    </a>
-  </div>
+    {navItems.map(({ href, label }) => (
+      <a
+        href={href}
+        class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
+      >
+        {label}
+      </a>
+    ))}
+  </nav>
 </header>
 
 <script>
@@ -133,11 +119,26 @@
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
   function toggleMenu() {
+    const isExpanded = menuToggle?.getAttribute('aria-expanded') === 'true';
+    
     mobileMenu?.classList.toggle('hidden');
     mobileMenu?.classList.toggle('flex');
     menuIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
     document.body.classList.toggle('overflow-hidden');
+    
+    menuToggle?.setAttribute('aria-expanded', String(!isExpanded));
+    menuToggle?.setAttribute('aria-label', isExpanded ? 'Open menu' : 'Close menu');
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.add('hidden');
+    mobileMenu?.classList.remove('flex');
+    menuIcon?.classList.remove('hidden');
+    closeIcon?.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    menuToggle?.setAttribute('aria-label', 'Open menu');
   }
 
   menuToggle?.addEventListener('click', toggleMenu);
@@ -145,10 +146,22 @@
   mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
       if (!mobileMenu?.classList.contains('hidden')) {
-        toggleMenu();
+        closeMenu();
       }
     });
   });
+
+  // Resetear el estado del menú al entrar en breakpoint de escritorio
+  const mdMediaQuery = window.matchMedia('(min-width: 768px)');
+  function handleBreakpointChange(event: MediaQueryListEvent | { matches: boolean }) {
+    if (event.matches) {
+      closeMenu();
+    }
+  }
+
+  // Estado inicial y listener
+  handleBreakpointChange(mdMediaQuery);
+  mdMediaQuery.addEventListener('change', handleBreakpointChange);
 </script>
 
 <!-- Spacer para compensar el header fixed -->
