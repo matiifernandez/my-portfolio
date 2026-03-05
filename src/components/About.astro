@@ -1,6 +1,6 @@
 ---
-// Sección About - Tu historia y habilidades
-// Diseño asimétrico para que sea más interesante visualmente
+// About Section - Your story and skills
+// Asymmetrical design to make it more visually interesting
 
 const skills = {
   languages: ["Ruby", "JavaScript", "HTML", "CSS", "SQL"],
@@ -12,14 +12,14 @@ const skills = {
 
 <section id="about" class="py-24">
   <div class="mx-auto max-w-5xl px-6">
-    <!-- Grid asimétrico: texto más grande que skills -->
+    <!-- Asymmetrical grid: text larger than skills -->
     <div class="grid gap-12 lg:grid-cols-5">
       <!--
-        lg:grid-cols-5: 5 columnas en pantallas grandes
-        Esto nos permite hacer una distribución 3:2 (más flexible que 2 columnas iguales)
+        lg:grid-cols-5: 5 columns on large screens
+        This allows us to make a 3:2 distribution (more flexible than 2 equal columns)
       -->
 
-      <!-- Texto principal: ocupa 3 columnas -->
+      <!-- Main text: occupies 3 columns -->
       <div class="lg:col-span-3 animate-on-scroll">
         <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
           About me
@@ -27,7 +27,7 @@ const skills = {
 
         <!-- Code snippet style -->
         <div class="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
-          <!-- Barra superior tipo editor -->
+          <!-- Editor-like top bar -->
           <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-800 bg-zinc-900/80">
             <span class="h-3 w-3 rounded-full bg-zinc-700"></span>
             <span class="h-3 w-3 rounded-full bg-zinc-700"></span>
@@ -35,7 +35,7 @@ const skills = {
             <span class="ml-2 text-xs text-zinc-500">about.js</span>
           </div>
 
-          <!-- Código -->
+          <!-- Code -->
           <div class="p-4 font-mono text-sm leading-relaxed overflow-x-auto">
             <p><span class="text-zinc-500">const</span> <span class="text-emerald-400">matias</span> <span class="text-zinc-500">=</span> <span class="text-zinc-400">{</span></p>
             <p class="pl-4"><span class="text-cyan-400">location</span><span class="text-zinc-500">:</span> <span class="text-amber-300">"Tokyo, Japan"</span><span class="text-zinc-500">,</span></p>
@@ -48,7 +48,7 @@ const skills = {
         </div>
       </div>
 
-      <!-- Skills: ocupa 2 columnas -->
+      <!-- Skills: occupies 2 columns -->
       <div class="lg:col-span-2 animate-on-scroll delay-200">
         <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6">
           <h3 class="mb-6 text-lg font-semibold text-zinc-200">Tech Stack</h3>
@@ -108,8 +108,8 @@ const skills = {
                   </span>
                 ))}
                 <!--
-                  Las skills "learning" tienen un estilo diferente (verde)
-                  Esto las distingue visualmente y muestra que sigues aprendiendo
+                  Learning skills have a different style (green)
+                  This distinguishes them visually and shows you're still learning
                 -->
               </div>
             </div>

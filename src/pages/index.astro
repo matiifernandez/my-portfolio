@@ -1,10 +1,10 @@
 ---
-// Esta es la página principal
-// En Astro, los archivos en /pages/ se convierten automáticamente en rutas
-// index.astro = / (la raíz)
+// This is the main page
+// In Astro, files in /pages/ automatically become routes
+// index.astro = / (the root)
 
-// Importamos el layout y los componentes
-// Similar a: extend 'layouts/application' + render partials en Rails
+// Import layout and components
+// Similar to: extend 'layouts/application' + render partials in Rails
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
@@ -15,8 +15,8 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="Matias Fernandez | Web Developer">
   <!--
-    Todo lo que ponemos aquí se inserta donde está el <slot /> en Layout.astro
-    Es como el contenido de yield en Rails
+    Everything we put here is inserted where the <slot /> is in Layout.astro
+    It's like the yield content in Rails
   -->
 
   <Header />
