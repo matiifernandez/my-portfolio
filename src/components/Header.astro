@@ -97,7 +97,7 @@ const navItems = [
   <!-- Menú de Navegación Móvil -->
   <nav
     id="mobile-menu"
-    class="fixed inset-x-0 top-16 bottom-0 bg-zinc-950/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 md:hidden transition-all duration-300 border-t border-zinc-800/50"
+    class="fixed inset-x-0 top-16 bottom-0 bg-zinc-950/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 md:hidden border-t border-zinc-800/50"
     aria-label="Mobile navigation"
   >
     {navItems.map(({ href, label }) => (
@@ -121,17 +121,29 @@ const navItems = [
   function toggleMenu() {
     const isExpanded = menuToggle?.getAttribute('aria-expanded') === 'true';
     
-    mobileMenu?.classList.toggle('hidden');
-    mobileMenu?.classList.toggle('flex');
-    menuIcon?.classList.toggle('hidden');
-    closeIcon?.classList.toggle('hidden');
-    document.body.classList.toggle('overflow-hidden');
+    if (isExpanded) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  function openMenu() {
+    mobileMenu?.classList.remove('hidden');
+    mobileMenu?.classList.add('flex');
+    menuIcon?.classList.add('hidden');
+    closeIcon?.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+    menuToggle?.setAttribute('aria-label', 'Close menu');
     
-    menuToggle?.setAttribute('aria-expanded', String(!isExpanded));
-    menuToggle?.setAttribute('aria-label', isExpanded ? 'Open menu' : 'Close menu');
+    // Enfocar el primer enlace para accesibilidad
+    (mobileMenu?.querySelector('.mobile-link') as HTMLElement)?.focus();
   }
 
   function closeMenu() {
+    if (mobileMenu?.classList.contains('hidden')) return;
+
     mobileMenu?.classList.add('hidden');
     mobileMenu?.classList.remove('flex');
     menuIcon?.classList.remove('hidden');
@@ -139,16 +151,24 @@ const navItems = [
     document.body.classList.remove('overflow-hidden');
     menuToggle?.setAttribute('aria-expanded', 'false');
     menuToggle?.setAttribute('aria-label', 'Open menu');
+    
+    // Restaurar el foco al botón de alternancia
+    menuToggle?.focus();
   }
 
   menuToggle?.addEventListener('click', toggleMenu);
 
   mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      if (!mobileMenu?.classList.contains('hidden')) {
-        closeMenu();
-      }
+      closeMenu();
     });
+  });
+
+  // Cerrar menú con la tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
+      closeMenu();
+    }
   });
 
   // Resetear el estado del menú al entrar en breakpoint de escritorio
