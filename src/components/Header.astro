@@ -1,6 +1,12 @@
 ---
 // El Header es fixed (se queda arriba) y tiene un efecto de glassmorphism
 // cuando haces scroll. Esto lo haremos con vanilla JS más adelante.
+
+const navItems = [
+  { href: "#projects", label: "Projects" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
 ---
 
 <header
@@ -32,38 +38,151 @@
       -->
     </a>
 
-    <!-- Navegación -->
-    <ul class="flex items-center gap-8">
-      <!--
-        gap-8: Espacio entre elementos (más limpio que margin)
-      -->
-      <li>
-        <a
-          href="#projects"
-          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          Projects
-        </a>
-      </li>
-      <li>
-        <a
-          href="#about"
-          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          About
-        </a>
-      </li>
-      <li>
-        <a
-          href="#contact"
-          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          Contact
-        </a>
-      </li>
+    <!-- Navegación Escritorio -->
+    <ul class="hidden md:flex items-center gap-8">
+      {navItems.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
     </ul>
+
+    <!-- Botón Menú Móvil -->
+    <button
+      id="menu-toggle"
+      type="button"
+      class="block md:hidden text-zinc-400 hover:text-zinc-100 transition-colors p-2"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        id="menu-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+      <svg
+        id="close-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 hidden"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Menú de Navegación Móvil -->
+  <nav
+    id="mobile-menu"
+    class="fixed inset-x-0 top-16 bottom-0 bg-zinc-950/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 md:hidden border-t border-zinc-800/50"
+    aria-label="Mobile navigation"
+  >
+    {navItems.map(({ href, label }) => (
+      <a
+        href={href}
+        class="text-2xl font-medium text-zinc-400 hover:text-zinc-100 transition-colors mobile-link"
+      >
+        {label}
+      </a>
+    ))}
   </nav>
 </header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    const isExpanded = menuToggle?.getAttribute('aria-expanded') === 'true';
+    
+    if (isExpanded) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  function openMenu() {
+    mobileMenu?.classList.remove('hidden');
+    mobileMenu?.classList.add('flex');
+    menuIcon?.classList.add('hidden');
+    closeIcon?.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+    menuToggle?.setAttribute('aria-label', 'Close menu');
+    
+    // Enfocar el primer enlace para accesibilidad
+    (mobileMenu?.querySelector('.mobile-link') as HTMLElement)?.focus();
+  }
+
+  function closeMenu() {
+    if (mobileMenu?.classList.contains('hidden')) return;
+
+    mobileMenu?.classList.add('hidden');
+    mobileMenu?.classList.remove('flex');
+    menuIcon?.classList.remove('hidden');
+    closeIcon?.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    menuToggle?.setAttribute('aria-label', 'Open menu');
+    
+    // Restaurar el foco al botón de alternancia
+    menuToggle?.focus();
+  }
+
+  menuToggle?.addEventListener('click', toggleMenu);
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+  // Cerrar menú con la tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
+      closeMenu();
+    }
+  });
+
+  // Resetear el estado del menú al entrar en breakpoint de escritorio
+  const mdMediaQuery = window.matchMedia('(min-width: 768px)');
+  function handleBreakpointChange(event) {
+    if (event && event.matches) {
+      closeMenu();
+    }
+  }
+
+  // Estado inicial y listener
+  handleBreakpointChange(mdMediaQuery);
+  mdMediaQuery.addEventListener('change', handleBreakpointChange);
+</script>
 
 <!-- Spacer para compensar el header fixed -->
 <div class="h-16"></div>
