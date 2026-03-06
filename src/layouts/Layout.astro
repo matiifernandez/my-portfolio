@@ -158,12 +158,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           let delay = isDeleting ? 50 : 100;
 
           if (!isDeleting && charIndex === currentWord.length) {
-            delay = 2000; // Pausa al final de la palabra
+            delay = 2000; // Pause at the end of the word
             isDeleting = true;
           } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length;
-            delay = 500; // Pausa antes de la siguiente palabra
+            delay = 500; // Pause before the next word
           }
 
           setTimeout(type, delay);
