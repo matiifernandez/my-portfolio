@@ -1,41 +1,41 @@
 ---
-// Hero: La sección más importante - primera impresión
-// Diseño minimalista pero impactante con un gradiente sutil
+// Hero: The most important section - first impression
+// Minimalist but impactful design with a subtle gradient
 ---
 
 <section class="relative min-h-[85dvh] flex items-center justify-center overflow-hidden">
   <!--
-    min-h-[85dvh]: Altura mínima del 85% del viewport dinámico
-    dvh se adapta mejor a móviles donde la barra del browser puede aparecer/desaparecer
-    Usamos 85% en lugar de 100% para que se vea que hay más contenido abajo
+    min-h-[85dvh]: Minimum height of 85% of the dynamic viewport
+    dvh adapts better to mobile where the browser bar can appear/disappear
+    We use 85% instead of 100% so that it's visible that there's more content below
   -->
 
-  <!-- Gradiente de fondo sutil - hace que la sección sea más interesante -->
+  <!-- Subtle background gradient - makes the section more interesting -->
   <div
     class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5"
   >
     <!--
-      from-emerald-500/5: Color inicial con 5% de opacidad (muy sutil)
-      via-transparent: Transparente en el medio
-      to-cyan-500/5: Color final con 5% de opacidad
+      from-emerald-500/5: Initial color with 5% opacity (very subtle)
+      via-transparent: Transparent in the middle
+      to-cyan-500/5: Final color with 5% opacity
 
-      El /5 significa 5% de opacidad - esto crea un efecto elegante sin ser invasivo
+      The /5 means 5% opacity - this creates an elegant effect without being invasive
     -->
   </div>
 
-  <!-- Grid decorativo de fondo con mask para difuminarlo hacia abajo -->
+  <!-- Decorative background grid with mask to fade it downwards -->
   <div
     class="absolute inset-0 bg-[linear-gradient(rgba(52,211,153,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(52,211,153,0.07)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:linear-gradient(to_bottom,white_50%,transparent_100%)]"
   >
     <!--
-      Esto crea un patrón de grid usando gradientes CSS
-      El mask-image difumina el grid hacia abajo para un efecto más elegante
+      This creates a grid pattern using CSS gradients
+      The mask-image fades the grid downwards for a more elegant effect
     -->
   </div>
 
-  <!-- Contenido principal -->
+  <!-- Main content -->
   <div class="relative z-10 mx-auto max-w-4xl px-6 text-center">
-    <!-- Badge de ubicación -->
+    <!-- Location badge -->
     <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-400">
       <span class="relative flex h-2 w-2">
         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
@@ -44,16 +44,16 @@
       Based in Tokyo, Japan
     </div>
     <!--
-      El dot parpadeante indica "disponible/activo"
-      animate-ping es una animación built-in de Tailwind
-      El badge da contexto inmediato sobre tu ubicación
+      The flashing dot indicates "available/active"
+      animate-ping is a built-in Tailwind animation
+      The badge gives immediate context about your location
     -->
 
-    <!-- Título principal -->
+    <!-- Main title -->
     <h1 class="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
       <!--
-        Tamaños responsivos:
-        text-5xl: Móvil (default)
+        Responsive sizes:
+        text-5xl: Mobile (default)
         sm:text-6xl: Tablets (640px+)
         lg:text-7xl: Desktop (1024px+)
       -->
@@ -63,12 +63,12 @@
       </span>
       <!--
         bg-clip-text + text-transparent:
-        Esto hace que el gradiente se aplique al TEXTO en lugar del fondo
-        Es el efecto de "texto con gradiente" que ves en sitios modernos
+        This makes the gradient apply to the TEXT instead of the background
+        It's the "gradient text" effect you see on modern sites
       -->
     </h1>
 
-    <!-- Subtítulo con efecto typewriter -->
+    <!-- Subtitle with typewriter effect -->
     <p class="mx-auto mb-8 max-w-2xl text-lg text-zinc-400 sm:text-xl">
       Full Stack web developer. <span id="typewriter" class="text-emerald-400"></span><span class="animate-pulse">|</span> things.
       <br class="hidden sm:block" />
@@ -82,8 +82,8 @@
         class="group inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-6 py-3 font-medium text-zinc-950 transition-all hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/25"
       >
         <!--
-          group: Permite que los hijos reaccionen al hover del padre
-          shadow-emerald-500/25: Sombra con el color del botón (efecto glow)
+          group: Allows children to react to the parent's hover
+          shadow-emerald-500/25: Shadow with the button's color (glow effect)
         -->
         View my work
         <svg
@@ -95,8 +95,8 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
         <!--
-          group-hover:translate-x-1: La flecha se mueve cuando haces hover en el botón
-          Pequeña animación que da feedback visual
+          group-hover:translate-x-1: The arrow moves when you hover over the button
+          Small animation that gives visual feedback
         -->
       </a>
 
@@ -115,7 +115,7 @@
 
   </div>
 
-  <!-- Indicador de scroll clickeable - lleva al siguiente viewport -->
+  <!-- Clickable scroll indicator - takes you to the next viewport -->
   <a
     href="#projects"
     class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer transition-colors hover:text-emerald-400"

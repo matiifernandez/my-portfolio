@@ -2,7 +2,7 @@
 
 /*
   ================================
-  ANIMACIONES
+  ANIMATIONS
   ================================
 */
 
@@ -17,7 +17,7 @@
   }
 }
 
-/* Elementos que se animan al entrar en viewport */
+/* Elements that animate when entering viewport */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -27,7 +27,7 @@
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
-/* Delays para animaciones escalonadas */
+/* Delays for staggered animations */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
@@ -46,17 +46,17 @@
 
 /*
   ================================
-  MEJORAS VISUALES
+  VISUAL IMPROVEMENTS
   ================================
 */
 
-/* Selección de texto con color de marca */
+/* Text selection with brand color */
 ::selection {
   background-color: rgba(52, 211, 153, 0.3);
   color: #ecfdf5;
 }
 
-/* Scrollbar personalizado */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

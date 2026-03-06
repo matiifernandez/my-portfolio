@@ -1,9 +1,9 @@
 ---
-// FRONTMATTER: Esta sección es como el controller de Rails
-// Aquí va la lógica de JavaScript que se ejecuta en BUILD TIME (no en el browser)
-// Props son como los parámetros que pasas a un partial
+// FRONTMATTER: This section is like the Rails controller
+// JavaScript logic that runs at BUILD TIME (not in the browser)
+// Props are like the parameters you pass to a partial
 
-// Importamos el CSS aquí - Astro lo procesa correctamente
+// We import the CSS here - Astro processes it correctly
 import '../styles/global.css';
 
 interface Props {
@@ -51,35 +51,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <body class="bg-zinc-950 text-zinc-200 antialiased overflow-x-hidden">
     <!--
-      antialiased: Suaviza las fuentes (se ve más profesional)
-      bg-zinc-950: Fondo casi negro pero con un toque cálido
-      text-zinc-100: Texto casi blanco
+      antialiased: Smoothens fonts (looks more professional)
+      bg-zinc-950: Almost black background with a warm touch
+      text-zinc-200: Almost white text
 
-      ¿Por qué zinc en lugar de gray?
-      - zinc tiene tonos más neutrales/cálidos
-      - gray puede verse "azulado" en algunos monitores
-      - zinc es más moderno para portfolios tech
+      Why zinc instead of gray?
+      - zinc has more neutral/warm tones
+      - gray can look "bluish" on some monitors
+      - zinc is more modern for tech portfolios
     -->
 
     <slot />
     <!--
-      <slot /> es como <%= yield %> en Rails
-      Aquí se inserta el contenido de cada página
+      <slot /> is like <%= yield %> in Rails
+      Each page's content is inserted here
     -->
 
     <!--
-      JAVASCRIPT VANILLA
-      En Astro, los scripts con la etiqueta <script> se ejecutan en el browser
-      (a diferencia del frontmatter que se ejecuta en build time)
+      VANILLA JAVASCRIPT
+      In Astro, scripts with the <script> tag run in the browser
+      (unlike the frontmatter which runs at build time)
 
-      Este es el equivalente a donde pondrías tu Stimulus controller,
-      pero más simple porque es vanilla JS
+      This is the equivalent to where you would put your Stimulus controller,
+      but simpler because it's vanilla JS
     -->
     <script>
       // ================================
       // HEADER SCROLL EFFECT
       // ================================
-      // Añade efecto glassmorphism al header cuando el usuario hace scroll
+      // Adds glassmorphism effect to the header when the user scrolls
       const header = document.getElementById('header');
 
       const handleScroll = () => {
@@ -91,38 +91,38 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       };
 
       window.addEventListener('scroll', handleScroll, { passive: true });
-      // passive: true mejora el performance del scroll
+      // passive: true improves scroll performance
 
       // ================================
-      // INTERSECTION OBSERVER (Animaciones on scroll)
+      // INTERSECTION OBSERVER (On-scroll animations)
       // ================================
-      // Esto detecta cuando un elemento entra en el viewport
-      // Similar a lo que harías con un library como AOS pero sin dependencias
+      // Detects when an element enters the viewport
+      // Similar to what you would do with a library like AOS but without dependencies
 
       const observerOptions = {
         root: null, // viewport
         rootMargin: '0px',
-        threshold: 0.1 // Se activa cuando 10% del elemento es visible
+        threshold: 0.1 // Activates when 10% of the element is visible
       };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Solo anima una vez
+            observer.unobserve(entry.target); // Only animates once
           }
         });
       }, observerOptions);
 
-      // Observamos todos los elementos con la clase .animate-on-scroll
+      // We observe all elements with the .animate-on-scroll class
       document.querySelectorAll('.animate-on-scroll').forEach((el) => {
         observer.observe(el);
       });
 
       // ================================
-      // SMOOTH SCROLL (solo para clicks en anchor links)
+      // SMOOTH SCROLL (only for anchor link clicks)
       // ================================
-      // Esto evita el "salto" al hacer refresh que causa scroll-smooth en el html
+      // Avoids the "jump" on refresh caused by scroll-smooth in the html
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', (e) => {
           e.preventDefault();
@@ -158,12 +158,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           let delay = isDeleting ? 50 : 100;
 
           if (!isDeleting && charIndex === currentWord.length) {
-            delay = 2000; // Pausa al final de la palabra
+            delay = 2000; // Pause at the end of the word
             isDeleting = true;
           } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length;
-            delay = 500; // Pausa antes de la siguiente palabra
+            delay = 500; // Pause before the next word
           }
 
           setTimeout(type, delay);
