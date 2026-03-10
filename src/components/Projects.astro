@@ -1,12 +1,12 @@
 ---
-// Sección de Proyectos
-// Aquí importamos y usamos el componente ProjectCard
+// Projects Section
+// Here we import and use the ProjectCard component
 
 import ProjectCard from './ProjectCard.astro';
 
-// Definimos los proyectos como data
-// Esto es como tener un array de objetos que iteras con .each en Rails
-// ACTUALIZA ESTO con tus proyectos reales
+// Define projects as data
+// This is like having an array of objects that you iterate with .each in Rails
+// UPDATE THIS with your actual projects
 const projects = [
   {
     title: "Kizuna Lingua",
@@ -53,18 +53,18 @@ const projects = [
     repoUrl: "https://github.com/matiifernandez/vanilla-tictactoe",
     featured: false
   },
-  // Añade más proyectos aquí cuando los tengas
+  // Add more projects here when you have them
 ];
 ---
 
 <section id="projects" class="py-24">
   <!--
-    py-24: Padding vertical generoso (96px)
-    Esto da "espacio para respirar" entre secciones
+    py-24: Generous vertical padding (96px)
+    This gives "room to breathe" between sections
   -->
 
   <div class="mx-auto max-w-5xl px-6">
-    <!-- Header de la sección -->
+    <!-- Section Header -->
     <div class="mb-12 text-center animate-on-scroll">
       <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
         Featured Projects
@@ -74,22 +74,22 @@ const projects = [
       </p>
     </div>
 
-    <!-- Grid de proyectos -->
+    <!-- Project grid -->
     <div class="grid gap-6 md:grid-cols-2 animate-on-scroll delay-200">
       <!--
-        grid: Activa CSS Grid
-        gap-6: Espacio entre items
-        md:grid-cols-2: 2 columnas en pantallas medianas+
+        grid: Activates CSS Grid
+        gap-6: Space between items
+        md:grid-cols-2: 2 columns on medium screens+
 
-        Los proyectos "featured" ocupan 2 columnas (definido en ProjectCard)
+        "featured" projects occupy 2 columns (defined in ProjectCard)
       -->
       {projects.map((project) => (
         <ProjectCard {...project} />
       ))}
       <!--
-        {...project} es spread syntax
-        Es como pasar todos los atributos del objeto como props individuales
-        Equivalente a: title={project.title} description={project.description} etc.
+        {...project} is spread syntax
+        It passes all object attributes as individual props
+        Equivalent to: title={project.title} description={project.description} etc.
       -->
     </div>
   </div>

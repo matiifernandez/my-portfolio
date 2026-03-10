@@ -1,15 +1,15 @@
 ---
-// ProjectCard: Componente reutilizable para cada proyecto
-// Similar a un partial de Rails con locals
+// ProjectCard: Reusable component for each project
+// Similar to a Rails partial with locals
 
 interface Props {
   title: string;
   description: string;
   tags: string[];
-  image?: string;        // Opcional - URL de la imagen
-  demoUrl?: string;      // Opcional - Link al demo
-  repoUrl?: string;      // Opcional - Link al repo
-  featured?: boolean;    // Opcional - Si es proyecto destacado
+  image?: string;        // Optional - image URL
+  demoUrl?: string;      // Optional - Link to demo
+  repoUrl?: string;      // Optional - Link to repo
+  featured?: boolean;    // Optional - If it's a featured project
 }
 
 const { title, description, tags, image, demoUrl, repoUrl, featured = false } = Astro.props;
@@ -17,20 +17,20 @@ const { title, description, tags, image, demoUrl, repoUrl, featured = false } = 
 
 <article
   class:list={[
-    // class:list es como una forma elegante de combinar clases condicionales
-    // Similar a class_names en Rails
+    // class:list is like an elegant way to combine conditional classes
+    // Similar to class_names in Rails
     "group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 transition-all duration-300",
     "hover:border-zinc-700 hover:bg-zinc-900",
-    featured && "md:col-span-2" // Si es featured, ocupa 2 columnas
+    featured && "md:col-span-2" // If it's featured, it occupies 2 columns
   ]}
 >
   <!--
-    group: Permite que elementos hijos reaccionen al hover del padre
-    rounded-2xl: Bordes muy redondeados (16px) - más moderno
-    bg-zinc-900/50: Fondo con 50% de opacidad (efecto glass)
+    group: Allows child elements to react to parent hover
+    rounded-2xl: Very rounded edges (16px) - more modern
+    bg-zinc-900/50: Background with 50% opacity (glass effect)
   -->
 
-  <!-- Imagen del proyecto (placeholder si no hay) -->
+  <!-- Project image (placeholder if none) -->
   <div class="relative aspect-video w-full overflow-hidden bg-zinc-800">
     {image ? (
       <img
@@ -39,29 +39,29 @@ const { title, description, tags, image, demoUrl, repoUrl, featured = false } = 
         class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
       />
     ) : (
-      <div class="flex h-full w-full items-center justify-center text-zinc-600">
+      <div class="absolute inset-0 flex h-full w-full items-center justify-center text-zinc-600">
         <svg class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
       </div>
     )}
     <!--
-      aspect-video: Mantiene ratio 16:9
-      group-hover:scale-105: Zoom sutil al hacer hover (efecto elegante)
-      duration-500: Animación lenta para que sea suave
+      aspect-video: Maintains 16:9 ratio
+      group-hover:scale-105: Subtle zoom on hover (elegant effect)
+      duration-500: Slow animation for smoothness
     -->
   </div>
 
-  <!-- Contenido -->
+  <!-- Content -->
   <div class="p-6">
     <h3 class="mb-2 text-xl font-semibold text-zinc-100">{title}</h3>
     <p class="mb-4 text-sm text-zinc-400 line-clamp-2">{description}</p>
     <!--
-      line-clamp-2: Limita a 2 líneas y añade "..." si es más largo
-      Esto mantiene las tarjetas con altura consistente
+      line-clamp-2: Limits to 2 lines and adds "..." if longer
+      This keeps cards with consistent height
     -->
 
-    <!-- Tags de tecnologías -->
+    <!-- Tech tags -->
     <div class="mb-4 flex flex-wrap gap-2">
       {tags.map((tag) => (
         <span class="rounded-full bg-zinc-800 px-3 py-1 text-xs text-zinc-400">
@@ -101,7 +101,7 @@ const { title, description, tags, image, demoUrl, repoUrl, featured = false } = 
     </div>
   </div>
 
-  <!-- Efecto de brillo en hover (muy sutil) -->
+  <!-- Glow effect on hover (very subtle) -->
   <div class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
     <div class="absolute inset-0 bg-gradient-to-t from-emerald-500/5 to-transparent"></div>
   </div>

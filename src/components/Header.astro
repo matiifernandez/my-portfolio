@@ -1,6 +1,6 @@
 ---
-// El Header es fixed (se queda arriba) y tiene un efecto de glassmorphism
-// cuando haces scroll. Esto lo haremos con vanilla JS más adelante.
+// The Header is fixed (stays at the top) and has a glassmorphism effect
+// when scrolling. We'll handle this with vanilla JS later.
 
 const navItems = [
   { href: "#projects", label: "Projects" },
@@ -15,30 +15,30 @@ const navItems = [
 >
   <nav class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
     <!--
-      max-w-5xl: Ancho máximo contenido (no queremos que se expanda en pantallas gigantes)
-      mx-auto: Centra el contenido
-      px-6: Padding horizontal (espaciado a los lados)
-      py-4: Padding vertical
+      max-w-5xl: Maximum content width (don't want it expanding on huge screens)
+      mx-auto: Centers the content
+      px-6: Horizontal padding (spacing on the sides)
+      py-4: Vertical padding
     -->
 
-    <!-- Logo/Nombre -->
+    <!-- Logo/Name -->
     <a
       href="/"
       class="text-xl font-bold tracking-tight hover:text-emerald-400 transition-colors"
     >
       <!--
-        tracking-tight: Reduce el espaciado entre letras (más compacto, moderno)
-        hover:text-emerald-400: Color al pasar el mouse
-        transition-colors: Animación suave del cambio de color
+        tracking-tight: Reduces letter spacing (more compact, modern)
+        hover:text-emerald-400: Color on mouse hover
+        transition-colors: Smooth color change animation
       -->
       mf<span class="text-emerald-400">.</span>
       <!--
-        El punto verde es un detalle simple pero memorable
-        Hace que el logo sea reconocible
+        The green dot is a simple but memorable detail
+        Makes the logo recognizable
       -->
     </a>
 
-    <!-- Navegación Escritorio -->
+    <!-- Desktop Navigation -->
     <ul class="hidden md:flex items-center gap-8">
       {navItems.map(({ href, label }) => (
         <li>
@@ -52,7 +52,7 @@ const navItems = [
       ))}
     </ul>
 
-    <!-- Botón Menú Móvil -->
+    <!-- Mobile Menu Button -->
     <button
       id="menu-toggle"
       type="button"
@@ -94,7 +94,7 @@ const navItems = [
     </button>
   </nav>
 
-  <!-- Menú de Navegación Móvil -->
+  <!-- Mobile Navigation Menu -->
   <nav
     id="mobile-menu"
     class="fixed inset-x-0 top-16 bottom-0 bg-zinc-950/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-8 md:hidden border-t border-zinc-800/50"
@@ -137,7 +137,7 @@ const navItems = [
     menuToggle?.setAttribute('aria-expanded', 'true');
     menuToggle?.setAttribute('aria-label', 'Close menu');
     
-    // Enfocar el primer enlace para accesibilidad
+    // Focus the first link for accessibility
     (mobileMenu?.querySelector('.mobile-link') as HTMLElement)?.focus();
   }
 
@@ -152,7 +152,7 @@ const navItems = [
     menuToggle?.setAttribute('aria-expanded', 'false');
     menuToggle?.setAttribute('aria-label', 'Open menu');
     
-    // Restaurar el foco al botón de alternancia
+    // Restore focus to the toggle button
     menuToggle?.focus();
   }
 
@@ -164,14 +164,14 @@ const navItems = [
     });
   });
 
-  // Cerrar menú con la tecla Escape
+  // Close menu with Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
       closeMenu();
     }
   });
 
-  // Resetear el estado del menú al entrar en breakpoint de escritorio
+  // Reset menu state when entering desktop breakpoint
   const mdMediaQuery = window.matchMedia('(min-width: 768px)');
   function handleBreakpointChange(event) {
     if (event && event.matches) {
@@ -179,10 +179,11 @@ const navItems = [
     }
   }
 
-  // Estado inicial y listener
+  // Initial state and listener
   handleBreakpointChange(mdMediaQuery);
   mdMediaQuery.addEventListener('change', handleBreakpointChange);
 </script>
 
-<!-- Spacer para compensar el header fixed -->
+<!-- Spacer to compensate for fixed header -->
 <div class="h-16"></div>
+

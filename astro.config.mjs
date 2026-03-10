@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.matiasfernandez.me',
   devToolbar: {
-    enabled: false // Desactiva el toolbar de desarrollo de Astro
+    enabled: false // Disables the Astro development toolbar
   },
 
   vite: {
