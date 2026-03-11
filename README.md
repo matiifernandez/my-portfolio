@@ -21,14 +21,14 @@ This portfolio is built using [Astro](https://astro.build), a modern web framewo
 /
 ├── public/          # Static assets (images, icons, etc.)
 ├── src/
-│   ├── components/  # Reusable UI components (Astro partials)
-│   ├── layouts/     # Page layouts
-│   ├── pages/       # Route-based pages (index.astro)
-│   └── styles/      # Global CSS and Tailwind directives
-├── astro.config.mjs # Astro configuration
-├── package.json     # Project dependencies and scripts
-├── package-lock.json # Locked versions of dependencies
-└── tsconfig.json    # TypeScript configuration
+│   ├── components/    # Reusable UI components (Astro partials)
+│   ├── layouts/       # Page layouts
+│   ├── pages/         # Route-based pages (index.astro)
+│   └── styles/        # Global CSS and Tailwind directives
+├── astro.config.mjs   # Astro configuration
+├── package.json       # Project dependencies and scripts
+├── package-lock.json  # Locked versions of dependencies
+└── tsconfig.json      # TypeScript configuration
 ```
 
 ## 🧞 Commands
@@ -39,7 +39,7 @@ All commands are run from the root of the project:
 | :--- | :--- |
 | `npm install` | Installs dependencies |
 | `npm run dev` | Starts local dev server at `localhost:4321` |
-| `npm run build` | Build the production site to `./dist/` |
+| `npm run build` | Builds the production site to `./dist/` |
 | `npm run preview` | Preview the build locally |
 | `npm run astro ...` | Run Astro CLI commands |
 
