@@ -31,12 +31,12 @@ const { title, description, tags, image, demoUrl, repoUrl, featured = false } = 
   -->
 
   <!-- Project image (placeholder if none) -->
-  <div class="relative aspect-video w-full overflow-hidden bg-zinc-800">
+  <div class="relative aspect-video w-full overflow-hidden bg-zinc-800 p-2">
     {image ? (
       <img
         src={image}
         alt={`Screenshot of ${title}`}
-        class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        class="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] object-contain transition-transform duration-500 group-hover:scale-105"
       />
     ) : (
       <div class="absolute inset-0 flex h-full w-full items-center justify-center text-zinc-600">
