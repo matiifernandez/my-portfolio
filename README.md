@@ -26,6 +26,8 @@ This portfolio is built using [Astro](https://astro.build), a modern web framewo
 │   ├── pages/       # Route-based pages (index.astro)
 │   └── styles/      # Global CSS and Tailwind directives
 ├── astro.config.mjs # Astro configuration
+├── package.json     # Project dependencies and scripts
+├── package-lock.json # Locked versions of dependencies
 └── tsconfig.json    # TypeScript configuration
 ```
 
