@@ -43,7 +43,7 @@ All commands are run from the root of the project:
 
 ## 🌐 Live Version
 
-You can check out the live version of this portfolio [here](https://matias-portfolio.netlify.app) (Update this link if needed!).
+You can check out the live version of this portfolio [here](https://www.matiasfernandez.me).
 
 ---
 *Made with 🧉 and chaos in Tokyo.*
