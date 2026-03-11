@@ -1,43 +1,49 @@
-# Astro Starter Kit: Minimal
+# 🧉 Matias' Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Welcome to my personal portfolio! I'm a Full Stack Web Developer based in **Tokyo, Japan**. This site showcases my journey through development, from Argentina to Australia and finally to Japan.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with **Astro**, **TypeScript**, and **Tailwind CSS**.
 
-## 🚀 Project Structure
+## 🚀 About Me
 
-Inside of your Astro project, you'll see the following folders and files:
+I'm a Le Wagon bootcamp graduate with a passion for building elegant, functional web applications. I enjoy working with:
+
+- **Languages:** Ruby, JavaScript, HTML, CSS, SQL
+- **Frameworks:** Ruby on Rails, Stimulus, Tailwind CSS, Bootstrap, Astro
+- **Tools:** Git, GitHub, PostgreSQL, VS Code, Figma
+- **Currently Learning:** Python (Django), React
+
+## 🛠️ Project Structure
+
+This portfolio is built using [Astro](https://astro.build), a modern web framework for content-driven websites.
 
 ```text
 /
-├── public/
+├── public/          # Static assets (images, icons, etc.)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/  # Reusable UI components (Astro partials)
+│   ├── layouts/     # Page layouts
+│   ├── pages/       # Route-based pages (index.astro)
+│   └── styles/      # Global CSS and Tailwind directives
+├── astro.config.mjs # Astro configuration
+└── tsconfig.json    # TypeScript configuration
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Installs dependencies |
+| `npm run dev` | Starts local dev server at `localhost:4321` |
+| `npm run build` | Build the production site to `./dist/` |
+| `npm run preview` | Preview the build locally |
+| `npm run astro ...` | Run Astro CLI commands |
 
-## 👀 Want to learn more?
+## 🌐 Live Version
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+You can check out the live version of this portfolio [here](https://matias-portfolio.netlify.app) (Update this link if needed!).
+
+---
+*Made with 🧉 and chaos in Tokyo.*
