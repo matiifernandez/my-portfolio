@@ -9,6 +9,23 @@ import ProjectCard from './ProjectCard.astro';
 // UPDATE THIS with your actual projects
 const projects = [
   {
+    title: "JidouNavi",
+    description: "A crowdsourced vending machine discovery app for Japan. Users can explore nearby machines on an interactive Mapbox map, add verified locations with photos and GPS data, check in to collect stamps, earn XP and badges, and help keep machine data fresh through community reports.",
+    tags: ["React Native", "Expo", "Supabase", "Mapbox", "PostGIS"],
+    image: "/images/jidou-navi.jpg",
+    demoUrl: "https://www.jidou-navi.app/",
+    repoUrl: "https://github.com/LeoCba07/jidou-navi",
+    featured: true
+  },
+  {
+    title: "ShiftSync Japan",
+    description: "A logistics and team management app for travel teams in Japan. Admins can coordinate multi-project trips, assign staff, manage tickets and accommodations, review expense receipts, and keep teams aligned with real-time chat and English/Japanese localization.",
+    tags: ["React Native", "Expo", "Supabase", "NativeWind", "Realtime"],
+    image: "/images/shiftsync-japan.jpg",
+    repoUrl: "https://github.com/matiifernandez/ShiftSync-Japan",
+    featured: true
+  },
+  {
     title: "Kizuna Lingua",
     description: "Kizuna Lingua is an innovative language learning platform for couples that leverages AI to create personalized study plans and interactive exercises. Built with Ruby on Rails and PostgreSQL, it integrates advanced language models to provide real-time feedback and conversational practice. Kizuna Lingua aims to make language learning engaging and effective for users of all levels.",
     tags: ["Ruby on Rails", "PostgreSQL", "Stimulus", "Ruby LLM Integration"],
@@ -24,7 +41,7 @@ const projects = [
     image: "/images/che-market.png",
     demoUrl: "https://che-market.onrender.com/",
     repoUrl: "https://github.com/matiifernandez/che_market",
-    featured: true
+    featured: false
   },
   {
     title: "UI Forge",
@@ -42,15 +59,6 @@ const projects = [
     image: "/images/code-editor.png",
     demoUrl: "https://online-js-editor.netlify.app/",
     repoUrl: "https://github.com/matiifernandez/code-editor",
-    featured: false
-  },
-  {
-    title: "Vanilla JS Tic-Tac-Toe",
-    description: "Tic-Tac-Toe with localStorage persistence and multi-tab sync. Built with vanilla JS using MVC pattern.",
-    tags: ["JavaScript", "HTML", "CSS", "MVC"],
-    image: "/images/tictactoe.png",
-    demoUrl: "https://vanillajs-tic-tac-toe.netlify.app/",
-    repoUrl: "https://github.com/matiifernandez/vanilla-tictactoe",
     featured: false
   },
   // Add more projects here when you have them
